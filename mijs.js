@@ -2,6 +2,9 @@ function main() {
   console.log("Que comiencen los juegos de JavaScript");
 
   var boton = document.getElementById('boton');
+  var operacion = document.getElementById('operacion');
+  var display = document.getElementById('display');
+  var resultado = document.getElementById('resultado');
 
   boton7.onclick = () => {
 
@@ -142,4 +145,18 @@ function main() {
     display.innerHTML = displayseguido;
 
   }
+
+  operacionmas.onclick = () => {
+
+    resultado.innerHTML = Number(display.innerHTML);
+    display.innerHTML = "0";
+  }
+
+  operacionigual.onclick = () => {
+
+    var operador2 = Number(display.innerHTML);
+    var suma = Number(resultado.innerHTML) + operador2;
+    display.innerHTML = suma;
+  }
+
 }
