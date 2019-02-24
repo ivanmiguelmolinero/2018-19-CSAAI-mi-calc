@@ -3,11 +3,28 @@ function añadir_dig(calc,dig)
   console.log("g");
   if (calc.estado == "init") {
     calc.gui.display.innerHTML = dig;
-    calc.estado = "OP1"
-  } else if (calc.estado == "OP1") {
+    calc.estado = "OP"
+  } else if (calc.estado == "OP") {
     calc.gui.display.innerHTML += dig;
-    console.log("h")
+    console.log(calc.op1)
+    console.log(calc.operacion);
   }
+}
+
+function calcular(calc)
+{
+  calc.op2 = calc.gui.display.innerHTML
+  if (calc.operacion == "suma") {
+    calc.gui.display.innerHTML = Number(calc.op1) + Number(calc.op2)
+  } else if (calc.operacion == "resta") {
+    calc.gui.display.innerHTML = Number(calc.op1) - Number(calc.op2)
+  } else if (calc.operacion == "multiplicacion") {
+    calc.gui.display.innerHTML = Number(calc.op1) * Number(calc.op2)
+  } else if (calc.operacion == "division") {
+    calc.gui.display.innerHTML = Number(calc.op1) / Number(calc.op2)
+  }
+  calc.estado = "init"
+  calc.operacion = "null"
 }
 
 function main () {
@@ -15,6 +32,9 @@ function main () {
 
   var calc = {
     estado: "init",
+    op1: 0,
+    op2: 0,
+    operacion: "null",
     gui : {
       display: document.getElementById("display"),
       botondig7: document.getElementById("boton7"),
@@ -27,7 +47,13 @@ function main () {
       botondig2: document.getElementById("boton2"),
       botondig3: document.getElementById("boton3"),
       botondig0: document.getElementById("boton0"),
-      operacionmas: document.getElementById("operacionmas")
+      botoncoma: document.getElementById("botoncoma"),
+      botonac: document.getElementById("botonac"),
+      operacionmas: document.getElementById("operacionmas"),
+      operacionmenos: document.getElementById("operacionmenos"),
+      operacionpor: document.getElementById("operacionpor"),
+      operaciondivision: document.getElementById("operaciondivision"),
+      operacionigual: document.getElementById("operacionigual")
     }
   }
   calc.gui.botondig7.onclick = () => {
@@ -59,5 +85,42 @@ function main () {
   }
   calc.gui.botondig0.onclick = () => {
     display = añadir_dig(calc,0)
+  }
+  calc.gui.botoncoma.onclick = () => {
+    display = añadir_dig(calc,".")
+  }
+  calc.gui.operacionmas.onclick = () => {
+    calc.op1 = calc.gui.display.innerHTML;
+    calc.gui.display.innerHTML = 0;
+    calc.operacion = "suma";
+    calc.estado = "init";
+  }
+  calc.gui.operacionmenos.onclick = () => {
+    calc.op1 = calc.gui.display.innerHTML;
+    calc.gui.display.innerHTML = 0;
+    calc.operacion = "resta";
+    calc.estado = "init";
+  }
+  calc.gui.operacionpor.onclick = () => {
+    calc.op1 = calc.gui.display.innerHTML;
+    calc.gui.display.innerHTML = 0;
+    calc.operacion = "multiplicacion";
+    calc.estado = "init";
+  }
+  calc.gui.operaciondivision.onclick = () => {
+    calc.op1 = calc.gui.display.innerHTML;
+    calc.gui.display.innerHTML = 0;
+    calc.operacion = "division";
+    calc.estado = "init";
+  }
+  calc.gui.botonac.onclick = () => {
+    calc.estado = "init";
+    calc.operacion = "null";
+    calc.op1 = 0;
+    calc.op2 = 0;
+    calc.gui.display.innerHTML = 0;
+  }
+  calc.gui.operacionigual.onclick = () => {
+    display = calcular(calc)
   }
 }
