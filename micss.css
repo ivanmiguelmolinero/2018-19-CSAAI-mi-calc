@@ -1,11 +1,20 @@
 body {
-  background-color: lightblue;
+  background-image: url("fondo.gif");
 }
 
 #display {
-  border-style: double;
+  border-style: groove;
+  border-width: 10px;
+  border-color: lightgreen;
   text-align: center;
-  background-color: green;
+  background-color: blue;
+  color: white;
+}
+
+#display:hover {
+  border-color: red;
+  background-color: yellow;
+  color: black;
 }
 
 div {
