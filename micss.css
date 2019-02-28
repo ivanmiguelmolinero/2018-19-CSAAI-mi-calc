@@ -1,3 +1,90 @@
 body {
   background-color: lightblue;
 }
+
+#display {
+  border-style: double;
+  text-align: center;
+  background-color: green;
+}
+
+div {
+    text-align: center;
+}
+
+img {
+  height: 20px;
+  margin-left: 0px;
+}
+
+.boton {
+  text-decoration: none;
+  padding: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  color: #ffffff;
+  background-color: #1883ba;
+  border-radius: 6px;
+  border: 2px solid #0016b0;
+}
+.boton:hover {
+  color: #1883ba;
+  background-color: #ffffff;
+}
+#boton7 {
+  cursor: pointer;
+}
+#boton8 {
+  cursor: pointer;
+}
+#boton9 {
+  cursor: pointer;
+}
+#botonac {
+  cursor: pointer;
+  padding-left: 18px;
+  padding-right: 18px;
+}
+#boton4 {
+  cursor: pointer;
+}
+#boton5 {
+  cursor: pointer;
+}
+#boton6 {
+  cursor: pointer;
+}
+#operacionpor {
+  cursor: pointer;
+}
+#operaciondivision {
+  cursor: pointer;
+}
+#boton1 {
+  cursor: pointer;
+}
+#boton2 {
+  cursor: pointer;
+}
+#boton3 {
+  cursor: pointer;
+}
+#operacionmas {
+  cursor: pointer;
+}
+#operacionmenos {
+  cursor: pointer;
+}
+#boton0 {
+  cursor: pointer;
+}
+#botoncoma {
+  cursor: pointer;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+#operacionigual {
+  cursor: pointer;
+  padding-left: 40px;
+  padding-right: 40px;
+}
